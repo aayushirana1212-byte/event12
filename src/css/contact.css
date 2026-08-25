@@ -1,0 +1,304 @@
+/* =========================================================
+   CONTACT PAGE
+   ========================================================= */
+
+/* ---------- Contact Info Cards ---------- */
+
+.ct-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 32px 26px;
+  text-align: center;
+  height: 100%;
+  transition: var(--tr);
+}
+
+.ct-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: var(--sh-card);
+}
+
+.ct-card .svc-ic {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 18px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+
+  background: rgba(212, 175, 55, 0.07);
+  color: var(--gold);
+
+  transition: var(--tr);
+}
+
+.ct-card:hover .svc-ic {
+  background: var(--grad-gold);
+  color: #1a1405;
+  transform: scale(1.08);
+}
+
+.ct-card h3 {
+  font-size: 19px;
+  margin: 0 0 10px;
+}
+
+.ct-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+
+/* ---------- Contact Main Grid ---------- */
+
+.ct-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 1fr);
+  gap: 36px;
+  align-items: stretch;
+}
+
+
+/* ---------- Contact Form ---------- */
+
+.ct-form {
+  padding: 40px;
+}
+
+.ct-form h3 {
+  margin: 0 0 6px;
+  font-size: 25px;
+  line-height: 1.3;
+}
+
+.ct-form-sub {
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+
+/* ---------- Contact Side ---------- */
+
+.ct-side {
+  display: grid;
+  grid-template-rows: minmax(320px, 1fr) auto;
+  gap: 24px;
+  min-width: 0;
+}
+
+
+/* ---------- Map ---------- */
+
+.ct-map {
+  position: relative;
+  min-height: 320px;
+
+  overflow: hidden;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+
+  background: var(--card);
+}
+
+.ct-map iframe {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+
+  filter:
+    grayscale(1)
+    invert(0.92)
+    contrast(0.9)
+    sepia(0.25);
+}
+
+
+/* ---------- Contact Note ---------- */
+
+.ct-note {
+  padding: 28px 30px;
+}
+
+.ct-note h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.ct-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+
+/* =========================================================
+   FORM ELEMENTS
+   ========================================================= */
+
+.ct-form .field {
+  margin-bottom: 18px;
+}
+
+.ct-form label {
+  display: block;
+  margin-bottom: 8px;
+
+  color: var(--ivory);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.ct-form .inp {
+  width: 100%;
+  min-height: 46px;
+
+  padding: 11px 14px;
+
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+
+  color: var(--ivory);
+  outline: none;
+
+  transition: var(--tr);
+}
+
+.ct-form textarea.inp {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.ct-form .inp:focus {
+  border-color: rgba(212, 175, 55, 0.65);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.08);
+}
+
+.ct-form .inp::placeholder {
+  color: var(--muted2);
+}
+
+
+/* ---------- Select ---------- */
+
+.ct-form select.inp {
+  cursor: pointer;
+}
+
+.ct-form select.inp option {
+  background: #111116;
+  color: var(--ivory);
+}
+
+
+/* ---------- Button ---------- */
+
+.ct-form .btn {
+  margin-top: 6px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1100px) {
+  .ct-grid {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 26px;
+  }
+
+  .ct-form {
+    padding: 32px;
+  }
+}
+
+
+@media (max-width: 940px) {
+  .ct-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ct-side {
+    grid-template-rows: 360px auto;
+  }
+
+  .ct-form {
+    padding: 30px 24px;
+  }
+
+  .ct-map {
+    min-height: 280px;
+  }
+}
+
+
+@media (max-width: 640px) {
+  .ct-grid {
+    gap: 20px;
+  }
+
+  .ct-card {
+    padding: 26px 20px;
+  }
+
+  .ct-form {
+    padding: 24px 18px;
+  }
+
+  .ct-form h3 {
+    font-size: 22px;
+  }
+
+  .ct-side {
+    grid-template-rows: 280px auto;
+    gap: 18px;
+  }
+
+  .ct-map {
+    min-height: 280px;
+    border-radius: 12px;
+  }
+
+  .ct-note {
+    padding: 24px 20px;
+  }
+
+  .ct-note h3 {
+    font-size: 18px;
+  }
+}
+
+
+/* ---------- Very Small Screens ---------- */
+
+@media (max-width: 400px) {
+  .ct-card {
+    padding: 24px 16px;
+  }
+
+  .ct-form {
+    padding: 22px 15px;
+  }
+
+  .ct-map {
+    min-height: 240px;
+  }
+}

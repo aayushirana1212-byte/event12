@@ -1,0 +1,478 @@
+/* ============================================================
+   AURELIA EVENTS — HERO
+============================================================ */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  min-height: 92vh;
+
+  display: flex;
+  align-items: center;
+
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   OVERLAY
+============================================================ */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(10, 9, 8, 0.90) 0%,
+    rgba(10, 9, 8, 0.72) 38%,
+    rgba(10, 9, 8, 0.45) 68%,
+    rgba(10, 9, 8, 0.25) 100%
+  );
+
+  z-index: 1;
+}
+
+
+/* ============================================================
+   CONTAINER
+============================================================ */
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+}
+
+
+/* ============================================================
+   HERO CONTENT
+============================================================ */
+
+.hero-content {
+  width: 100%;
+  max-width: 720px;
+
+  padding: 110px 0;
+}
+
+
+/* ============================================================
+   BRAND
+============================================================ */
+
+.hero-brand {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 28px;
+}
+
+
+/* Crown circle */
+
+.hero-icon {
+  width: 50px;
+  height: 50px;
+
+  min-width: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(212, 175, 55, 0.75);
+
+  border-radius: 50%;
+
+  color: #d4af37;
+
+  background: rgba(212, 175, 55, 0.06);
+
+  box-shadow:
+    0 0 25px rgba(212, 175, 55, 0.10);
+}
+
+
+/* Aurelia title */
+
+.hero-brand h2 {
+  margin: 0 0 5px;
+
+  color: #fffaf0;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+
+/* Small brand text */
+
+.hero-brand div span {
+  display: block;
+
+  color: #d8cdbb !important;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  letter-spacing: 0.6px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   KICKER
+============================================================ */
+
+.hero-kicker {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  color: #d4af37;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   MAIN HEADING
+============================================================ */
+
+.hero h1 {
+  margin: 0 0 28px;
+
+  max-width: 750px;
+
+  color: #fffaf0;
+
+  font-size: clamp(48px, 6vw, 82px);
+
+  font-weight: 600;
+
+  line-height: 1.04;
+
+  letter-spacing: -2px;
+}
+
+
+/* Gold heading part */
+
+.gold-text {
+  color: #d4af37;
+
+  font-style: normal;
+
+  text-shadow:
+    0 4px 25px rgba(212, 175, 55, 0.12);
+}
+
+
+/* ============================================================
+   DESCRIPTION
+============================================================ */
+.hero p {
+  max-width: 650px;
+  margin: 0 0 38px;
+
+  color: #f1eadc !important;
+
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  letter-spacing: 0.2px;
+}
+
+
+/* ============================================================
+   BUTTON AREA
+============================================================ */
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   ALL HERO BUTTONS
+============================================================ */
+
+.hero-buttons .btn {
+  min-height: 50px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 0 23px;
+
+  border-radius: 4px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.3px;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+/* ============================================================
+   BOOK YOUR EVENT
+============================================================ */
+
+.btn-gold {
+  background: #d4af37;
+
+  color: #17130a;
+
+  border: 1px solid #d4af37;
+
+  box-shadow:
+    0 8px 25px rgba(212, 175, 55, 0.18);
+}
+
+
+.btn-gold:hover {
+  background: #e7c85a;
+
+  border-color: #e7c85a;
+
+  color: #111;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(212, 175, 55, 0.28);
+}
+
+
+/* ============================================================
+   EXPLORE EVENTS
+============================================================ */
+
+.btn-line {
+  background: rgba(255, 255, 255, 0.04);
+
+  color: #fffaf0;
+
+  border: 1px solid rgba(255, 250, 240, 0.45);
+
+  backdrop-filter: blur(5px);
+}
+
+
+.btn-line:hover {
+  background: #fffaf0;
+
+  color: #17130a;
+
+  border-color: #fffaf0;
+
+  transform: translateY(-3px);
+}
+
+
+/* ============================================================
+   ARROW
+============================================================ */
+
+.hero-buttons svg {
+  transition: transform 0.3s ease;
+}
+
+.hero-buttons .btn:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* ============================================================
+   TABLET
+============================================================ */
+
+@media (max-width: 1000px) {
+
+  .hero {
+    min-height: 85vh;
+
+    background-position: center center !important;
+  }
+
+  .hero-content {
+    max-width: 650px;
+
+    padding: 90px 35px;
+  }
+
+  .hero h1 {
+    font-size: 62px;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 700px) {
+
+  .hero {
+    min-height: 90vh;
+
+    background-position: center center !important;
+  }
+
+
+  /* Stronger overlay on mobile */
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(10, 9, 8, 0.88),
+        rgba(10, 9, 8, 0.62)
+      );
+  }
+
+
+  .hero-content {
+    max-width: 100%;
+
+    padding: 80px 20px;
+  }
+
+
+  /* Brand */
+
+  .hero-brand {
+    gap: 12px;
+
+    margin-bottom: 24px;
+  }
+
+
+  .hero-icon {
+    width: 44px;
+    height: 44px;
+
+    min-width: 44px;
+  }
+
+
+  .hero-brand h2 {
+    font-size: 15px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .hero-brand div span {
+    font-size: 10px;
+  }
+
+
+  /* Kicker */
+
+  .hero-kicker {
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+  }
+
+
+  /* Heading */
+
+  .hero h1 {
+    margin-bottom: 22px;
+
+    font-size: 46px;
+
+    line-height: 1.08;
+
+    letter-spacing: -1px;
+  }
+
+
+  /* Paragraph */
+
+  .hero p {
+    margin-bottom: 30px;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+
+  /* Buttons */
+
+  .hero-buttons {
+    width: 100%;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+
+  .hero-buttons .btn {
+    width: 100%;
+
+    min-height: 50px;
+  }
+}
+
+
+/* ============================================================
+   SMALL MOBILE
+============================================================ */
+
+@media (max-width: 420px) {
+
+  .hero-content {
+    padding: 65px 18px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+}

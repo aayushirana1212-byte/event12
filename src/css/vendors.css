@@ -1,0 +1,97 @@
+/* ============ Vendors Page ============ */
+
+.svc-search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  padding: 0 16px;
+  transition: var(--tr);
+}
+
+.svc-search svg {
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+.svc-search:focus-within {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+}
+
+.svc-search input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--ivory);
+  padding: 14px 0;
+  font-size: 14px;
+}
+
+.svc-search input::placeholder {
+  color: var(--muted2);
+}
+
+/* Become a Vendor */
+
+.vd-join {
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(212, 175, 55, 0.1),
+      rgba(212, 175, 55, 0.03)
+    ),
+    var(--card);
+
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 18px;
+  padding: 44px 48px;
+
+  transition: var(--tr);
+}
+
+.vd-join:hover {
+  border-color: rgba(212, 175, 55, 0.65);
+  box-shadow: var(--sh-gold);
+  transform: translateY(-4px);
+}
+
+.vd-join h3 {
+  font-size: 27px;
+  margin: 16px 0 8px;
+}
+
+.vd-join p {
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 520px;
+}
+
+.vd-join .btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .vd-join {
+    padding: 30px 24px;
+  }
+
+  .vd-join h3 {
+    font-size: 23px;
+  }
+
+  .vd-join .btn {
+    width: 100%;
+  }
+}

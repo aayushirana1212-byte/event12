@@ -1,0 +1,30 @@
+/* ============ Events page ============ */
+.ev-controls { display: grid; gap: 22px; }
+.ev-search {
+  display: flex; align-items: center; gap: 12px; background: #0f0f15;
+  border: 1px solid var(--line-soft); border-radius: 10px; padding: 0 18px; max-width: 460px; transition: var(--tr);
+}
+.ev-search:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.14); }
+.ev-search svg { color: var(--gold); flex-shrink: 0; }
+.ev-search input { flex: 1; background: transparent; border: none; outline: none; color: var(--ivory); padding: 15px 0; font-size: 15px; }
+.ev-search input::placeholder { color: #5d594e; }
+.ev-search button { color: var(--muted); display: grid; place-items: center; }
+.ev-search button:hover { color: var(--gold); }
+
+/* Details modal */
+.evm-img { height: 280px; }
+.evm-img img { width: 100%; height: 100%; object-fit: cover; }
+.evm-body { padding: 32px 36px 36px; }
+.evm-body h3 { font-size: 30px; margin: 16px 0 20px; }
+.evm-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 22px; }
+.evm-meta span { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 14px; }
+.evm-meta svg { width: 15px; height: 15px; color: var(--gold); flex-shrink: 0; }
+.evm-price { font-family: var(--ff-head); font-size: 21px; color: var(--gold); }
+.evm-price small { font-family: var(--ff-body); font-size: 11px; color: var(--muted); }
+.evm-desc { color: var(--muted); font-weight: 300; line-height: 1.75; }
+.evm-acts { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
+
+@media (max-width: 640px) {
+  .evm-body { padding: 24px 20px 28px; }
+  .evm-meta { grid-template-columns: 1fr 1fr; }
+}

@@ -1,0 +1,68 @@
+/* ============================================================
+   MISC PAGES — profile, reviews, faq, legal, 404
+   ============================================================ */
+
+/* ---------- Profile ---------- */
+.pf-grid { display: grid; grid-template-columns: 360px 1fr; gap: 30px; align-items: start; }
+.pf-prefs { display: grid; gap: 16px; }
+
+/* ---------- Reviews ---------- */
+.rv-top { display: grid; grid-template-columns: 1fr 1.25fr; gap: 30px; align-items: stretch; margin-bottom: 80px; }
+.rvsum { display: grid; gap: 26px; align-content: center; }
+.rvsum-score { display: flex; align-items: center; gap: 20px; }
+.rvsum-score > b { font-family: var(--ff-head); font-size: 72px; color: var(--gold); line-height: 1; }
+.rvsum-n { display: block; color: var(--muted); font-size: 13.5px; margin-top: 8px; }
+.rvbars { display: grid; gap: 12px; }
+.rvbar { display: flex; align-items: center; gap: 14px; font-size: 13px; color: var(--muted); }
+.rvbar span { width: 32px; color: var(--gold); }
+.rvbar .track { flex: 1; height: 8px; border-radius: 6px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
+.rvbar .track i { display: block; height: 100%; background: var(--grad-gold); border-radius: 6px; }
+.rvbar b { width: 40px; text-align: right; color: var(--ivory); font-weight: 500; }
+
+/* ---------- FAQ page ---------- */
+.faq-tools { display: grid; gap: 24px; margin-bottom: 48px; }
+.faq-search {
+  display: flex; align-items: center; gap: 12px; background: #0f0f15;
+  border: 1px solid var(--line-soft); border-radius: 10px; padding: 0 18px;
+  max-width: 480px; margin: 0 auto; width: 100%; transition: var(--tr);
+}
+.faq-search:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.14); }
+.faq-search svg { color: var(--gold); }
+.faq-search input { flex: 1; background: transparent; border: none; outline: none; color: var(--ivory); padding: 15px 0; font-size: 15px; }
+.faq-search input::placeholder { color: #5d594e; }
+
+.faq-help {
+  margin-top: 64px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+  background: linear-gradient(120deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.03)), var(--card);
+  border: 1px solid rgba(212, 175, 55, 0.4); border-radius: 18px; padding: 34px 40px;
+}
+.faq-help .svc-ic { margin: 0; }
+.faq-help h3 { font-size: 22px; margin-bottom: 4px; }
+.faq-help p { color: var(--muted); font-weight: 300; font-size: 14.5px; }
+.faq-help-acts { display: flex; gap: 12px; margin-left: auto; flex-wrap: wrap; }
+
+/* ---------- Legal pages ---------- */
+.legal { max-width: 840px; margin: 0 auto; }
+.legal-up { color: var(--gold); font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; margin-bottom: 18px; }
+.legal-intro { font-size: 17.5px; color: #d8d1c0; font-weight: 300; margin-bottom: 40px; font-family: var(--ff-head); font-style: italic; }
+.legal-sec { margin-bottom: 34px; padding-bottom: 34px; border-bottom: 1px solid var(--line-soft); }
+.legal-sec h2 { font-size: 24px; color: var(--gold-2); margin-bottom: 12px; }
+.legal-sec p { color: var(--muted); font-weight: 300; font-size: 15.5px; line-height: 1.8; }
+.legal-note {
+  margin-top: 44px; padding: 26px 30px; border: 1px dashed rgba(212, 175, 55, 0.45);
+  border-radius: 14px; color: var(--muted); font-size: 15px; text-align: center;
+}
+.legal-note b { color: var(--gold); }
+
+/* ---------- 404 ---------- */
+.nf { min-height: 88vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px 24px 90px; }
+.nf-code { font-family: var(--ff-head); font-size: clamp(110px, 20vw, 210px); font-weight: 800; line-height: 1; margin: 18px 0 6px; }
+.nf h2 { font-size: clamp(26px, 4vw, 40px); margin-bottom: 14px; }
+.nf p { color: var(--muted); font-weight: 300; max-width: 440px; margin-bottom: 36px; }
+.nf-acts { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .pf-grid, .rv-top { grid-template-columns: 1fr; }
+  .faq-help-acts { margin-left: 0; }
+}

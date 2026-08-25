@@ -1,0 +1,197 @@
+/* SERVICES PAGE */
+
+.svc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.svc-search {
+  width: 300px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #151515;
+}
+
+.svc-search svg {
+  color: #d4af37;
+}
+
+.svc-search input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+}
+
+
+/* GRID */
+
+.grid.g4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+
+/* CARD */
+
+.svc-card {
+  height: 100%;
+  padding: 28px;
+  background: #151515;
+  border: 1px solid #333;
+  border-radius: 14px;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  transition: 0.3s ease;
+}
+
+.svc-card:hover {
+  transform: translateY(-8px);
+  border-color: #d4af37;
+}
+
+
+/* ICON */
+
+.svc-ic {
+  width: 56px;
+  height: 56px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+  border: 1px solid #d4af37;
+
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.08);
+}
+
+
+/* TITLE */
+
+.svc-card h3 {
+  margin: 0 0 12px;
+  color: white;
+  font-size: 20px;
+}
+
+
+/* DESCRIPTION */
+
+.svc-card p {
+  margin: 0;
+  color: #aaa;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+
+/* FOOT */
+
+.svc-foot {
+  margin-top: auto;
+  padding-top: 25px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid #333;
+}
+
+.svc-price {
+  color: #d4af37;
+  font-size: 14px;
+}
+
+.svc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: #d4af37;
+  text-decoration: none;
+}
+
+.svc-link:hover {
+  color: #f0d77a;
+}
+
+
+/* BESPOKE */
+
+.svc-bespoke {
+  margin-top: 60px;
+  padding: 35px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  background: #151515;
+  border: 1px solid #444;
+  border-radius: 14px;
+}
+
+.svc-bespoke h3 {
+  margin: 14px 0 8px;
+  color: white;
+  font-size: 24px;
+}
+
+.svc-bespoke p {
+  margin: 0;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+
+  .grid.g4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 650px) {
+
+  .svc-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .svc-search {
+    width: 100%;
+  }
+
+  .grid.g4 {
+    grid-template-columns: 1fr;
+  }
+
+  .svc-bespoke {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}

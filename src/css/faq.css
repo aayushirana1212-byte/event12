@@ -1,0 +1,18 @@
+/* ============ FAQ accordion ============ */
+.fq { max-width: 860px; margin: 0 auto; }
+.fq-item {
+  border: 1px solid var(--line-soft); border-radius: 12px; margin-bottom: 14px;
+  background: var(--card); overflow: hidden; transition: var(--tr);
+}
+.fq-item.open { border-color: rgba(212, 175, 55, 0.5); box-shadow: 0 14px 40px -24px rgba(212, 175, 55, 0.35); }
+.fq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  padding: 22px 26px; text-align: left; font-family: var(--ff-head); font-size: 18.5px; color: var(--ivory);
+}
+.fq-q svg { color: var(--gold); flex-shrink: 0; transition: transform 0.4s ease; }
+.fq-item.open .fq-q svg { transform: rotate(135deg); }
+.fq-item.open .fq-q { color: var(--gold-2); }
+.fq-a { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.45s cubic-bezier(0.22, 0.61, 0.36, 1); }
+.fq-item.open .fq-a { grid-template-rows: 1fr; }
+.fq-a-in { overflow: hidden; }
+.fq-a-in p { padding: 0 26px 24px; color: var(--muted); font-weight: 300; font-size: 15px; }
