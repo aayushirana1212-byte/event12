@@ -123,23 +123,44 @@ export default function Footer() {
               obsession for detail.
             </p>
 
-            <div className="f-soc">
-              <a href="#" aria-label="Facebook">
-                <IcFacebook />
-              </a>
+       
+       <div className="f-soc">
+  <a
+    href="https://www.facebook.com/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Facebook"
+  >
+    <IcFacebook />
+  </a>
 
-              <a href="#" aria-label="Instagram">
-                <IcInstagram />
-              </a>
+  <a
+    href="https://www.instagram.com/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Instagram"
+  >
+    <IcInstagram />
+  </a>
 
-              <a href="#" aria-label="X">
-                <IcX />
-              </a>
+  <a
+    href="https://x.com/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="X"
+  >
+    <IcX />
+  </a>
 
-              <a href="#" aria-label="YouTube">
-                <IcYoutube />
-              </a>
-            </div>
+  <a
+    href="https://www.youtube.com/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="YouTube"
+  >
+    <IcYoutube />
+  </a>
+</div>
           </div>
 
           {/* Quick Links */}
