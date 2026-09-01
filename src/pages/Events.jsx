@@ -16,13 +16,13 @@ import Reveal from "../components/Reveal";
 import Pagination from "../components/Pagination";
 import CTASection from "../components/CTASection";
 import { EventCard } from "../components/FeatureEvents";
-
 import { events, eventCategories } from "../data/content";
 
 import "../css/events.css";
 
 const PER_PAGE = 6;
 
+/* ============ EVENTS PAGE — search, filter, details modal, pagination ============ */
 export default function Events() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState("All");
@@ -31,14 +31,13 @@ export default function Events() {
 
   // Search + category filter
   const filtered = useMemo(() => {
-    return events.filter((event) => {
-      const matchCat =
-        cat === "All" || event.category === cat;
+    return events.filter((e) => {
+      const matchCat = cat === "All" || e.category === cat;
 
       const matchQ = (
-        event.title +
-        event.location +
-        event.category
+        e.title +
+        e.location +
+        e.category
       )
         .toLowerCase()
         .includes(q.toLowerCase());
@@ -48,9 +47,7 @@ export default function Events() {
   }, [q, cat]);
 
   // Pagination
-  const totalPages = Math.ceil(
-    filtered.length / PER_PAGE
-  );
+  const totalPages = Math.ceil(filtered.length / PER_PAGE);
 
   const pageItems = filtered.slice(
     (page - 1) * PER_PAGE,
@@ -58,20 +55,19 @@ export default function Events() {
   );
 
   // Category select
-  const pick = (category) => {
-    setCat(category);
+  const pick = (c) => {
+    setCat(c);
     setPage(1);
   };
 
   return (
     <>
-      {/* Page Banner */}
-      <PageBanner title="Events Calendar" crumb="Events"/>
+      <PageBanner title="Events Calendar" crumb="Events" />
 
       <section className="section">
         <div className="container">
 
-          {/* ================= CONTROLS ================= */}
+          {/* Controls */}
           <Reveal>
             <div className="ev-controls">
 
@@ -79,15 +75,19 @@ export default function Events() {
               <div className="ev-search">
                 <Search size={16} />
 
-                <input type="text" placeholder="Search events, locations..." value={q} onChange={(e) => {
-                   setQ(e.target.value);
-                    setPage(1); }}
+                <input
+                  type="text"
+                  placeholder="Search events, locations..."
+                  value={q}
+                  onChange={(e) => {
+                    setQ(e.target.value);
+                    setPage(1);
+                  }}
                   aria-label="Search events"
                 />
 
                 {q && (
                   <button
-                    type="button"
                     onClick={() => {
                       setQ("");
                       setPage(1);
@@ -101,16 +101,13 @@ export default function Events() {
 
               {/* Categories */}
               <div className="tag-row">
-                {eventCategories.map((category) => (
+                {eventCategories.map((c) => (
                   <button
-                    key={category}
-                    type="button"
-                    className={`pill ${
-                      cat === category ? "on" : ""
-                    }`}
-                    onClick={() => pick(category)}
+                    key={c}
+                    className={`pill ${cat === c ? "on" : ""}`}
+                    onClick={() => pick(c)}
                   >
-                    {category}
+                    {c}
                   </button>
                 ))}
               </div>
@@ -118,35 +115,33 @@ export default function Events() {
             </div>
           </Reveal>
 
-          {/* ================= EVENT GRID ================= */}
-
+          {/* Events Grid */}
           {pageItems.length > 0 ? (
             <div
               className="grid g3"
               style={{ marginTop: 44 }}
             >
-              {pageItems.map((event, index) => (
+              {pageItems.map((ev, i) => (
                 <Reveal
-                  key={event.id}
-                  delay={(index % 3) * 100}
+                  key={ev.id}
+                  delay={(i % 3) * 100}
                 >
                   <EventCard
-                    ev={event}
+                    ev={ev}
                     onView={setView}
                   />
                 </Reveal>
               ))}
             </div>
           ) : (
-            /* Empty state */
             <div className="empty">
               <CalendarSearch />
 
               <h3>No events found</h3>
 
               <p>
-                Try another keyword or category — new
-                golden experiences are added weekly.
+                Try another keyword or category — new golden
+                experiences are added weekly.
               </p>
             </div>
           )}
@@ -163,8 +158,7 @@ export default function Events() {
         </div>
       </section>
 
-      {/* ================= EVENT MODAL ================= */}
-
+      {/* Event Details Modal */}
       {view && (
         <div
           className="modal-ov"
@@ -177,7 +171,6 @@ export default function Events() {
 
             {/* Close */}
             <button
-              type="button"
               className="m-close"
               onClick={() => setView(null)}
               aria-label="Close"
@@ -193,7 +186,7 @@ export default function Events() {
               />
             </div>
 
-            {/* Content */}
+            {/* Body */}
             <div className="evm-body">
 
               <span className="badge">
@@ -202,6 +195,7 @@ export default function Events() {
 
               <h3>{view.title}</h3>
 
+              {/* Event Meta */}
               <div className="evm-meta">
 
                 <span>
@@ -230,17 +224,18 @@ export default function Events() {
                 </span>
 
                 <span className="evm-price">
-                  ${view.price.toLocaleString()}
+                  ₹{view.price.toLocaleString()}
                   <small> onwards</small>
                 </span>
 
               </div>
 
+              {/* Description */}
               <p className="evm-desc">
                 {view.desc}
               </p>
 
-              {/* Buttons */}
+              {/* Actions */}
               <div className="evm-acts">
 
                 <Link
@@ -248,13 +243,11 @@ export default function Events() {
                     view.category
                   )}`}
                   className="btn btn-gold"
-                  onClick={() => setView(null)}
                 >
                   Book This Event
                 </Link>
 
                 <button
-                  type="button"
                   className="btn btn-ghost"
                   onClick={() => setView(null)}
                 >

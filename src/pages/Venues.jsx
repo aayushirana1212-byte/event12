@@ -20,7 +20,6 @@ import FAQ from "../components/Faq";
 import CTASection from "../components/CTASection";
 import { VenueCard } from "../components/VenueCards";
 import DynIcon from "../components/DynIcon";
-
 import {
   venues,
   venueCategories,
@@ -30,21 +29,49 @@ import {
 
 import "../css/venues.css";
 
+/* ---------------- Facilities ---------------- */
+
 const FACILITIES = [
-  { icon: Car, label: "Valet Parking" },
-  { icon: UtensilsCrossed, label: "In-house Catering" },
-  { icon: BedDouble, label: "Bridal Suites" },
-  { icon: ShieldCheck, label: "24/7 Security" },
-  { icon: Wifi, label: "High-Speed WiFi" },
-  { icon: MonitorPlay, label: "LED Walls & AV" },
-  { icon: Lightbulb, label: "Designer Lighting" },
-  { icon: Zap, label: "Full Power Backup" },
+  {
+    icon: Car,
+    label: "Valet Parking",
+  },
+  {
+    icon: UtensilsCrossed,
+    label: "In-house Catering",
+  },
+  {
+    icon: BedDouble,
+    label: "Bridal Suites",
+  },
+  {
+    icon: ShieldCheck,
+    label: "24/7 Security",
+  },
+  {
+    icon: Wifi,
+    label: "High-Speed WiFi",
+  },
+  {
+    icon: MonitorPlay,
+    label: "LED Walls & AV",
+  },
+  {
+    icon: Lightbulb,
+    label: "Designer Lighting",
+  },
+  {
+    icon: Zap,
+    label: "Full Power Backup",
+  },
 ];
+
+/* ---------------- Pricing Tiers ---------------- */
 
 const TIERS = [
   {
     name: "Essential",
-    price: "$2,999",
+    price: "₹2,999",
     per: "/ event",
     feats: [
       "Venue for 6 hours",
@@ -57,7 +84,7 @@ const TIERS = [
   },
   {
     name: "Signature",
-    price: "$5,999",
+    price: "₹5,999",
     per: "/ event",
     feats: [
       "Venue for 12 hours",
@@ -71,7 +98,7 @@ const TIERS = [
   },
   {
     name: "Royal",
-    price: "$12,999",
+    price: "₹12,999",
     per: "/ event",
     feats: [
       "Full-day exclusive buyout",
@@ -96,13 +123,12 @@ export default function Venues() {
 
   return (
     <>
-      {/* Page Banner */}
       <PageBanner
         title="Royal Venues"
         crumb="Venues"
       />
 
-      {/* ================= VENUE CATEGORIES ================= */}
+      {/* ================= CATEGORY FILTER + CARDS ================= */}
 
       <section className="section">
         <div className="container">
@@ -131,7 +157,9 @@ export default function Venues() {
               {venueCategories.map((c) => (
                 <button
                   key={c}
-                  className={`pill ${cat === c ? "on" : ""}`}
+                  className={`pill ${
+                    cat === c ? "on" : ""
+                  }`}
                   onClick={() => setCat(c)}
                 >
                   {c}
@@ -140,25 +168,16 @@ export default function Venues() {
             </div>
           </Reveal>
 
-          {list.length > 0 ? (
-            <div className="grid g3">
-              {list.map((v, i) => (
-                <Reveal
-                  key={v.id}
-                  delay={(i % 3) * 100}
-                >
-                  <VenueCard v={v} />
-                </Reveal>
-              ))}
-            </div>
-          ) : (
-            <div className="empty">
-              <h3>No venues found</h3>
-              <p>
-                Try selecting another venue category.
-              </p>
-            </div>
-          )}
+          <div className="grid g3">
+            {list.map((v, i) => (
+              <Reveal
+                key={v.id}
+                delay={(i % 3) * 100}
+              >
+                <VenueCard v={v} />
+              </Reveal>
+            ))}
+          </div>
 
         </div>
       </section>
@@ -223,6 +242,7 @@ export default function Venues() {
           />
 
           <div className="grid g3 tiers">
+
             {TIERS.map((t, i) => (
               <Reveal
                 key={t.name}
@@ -248,10 +268,10 @@ export default function Venues() {
                   </div>
 
                   <ul>
-                    {t.feats.map((feature) => (
-                      <li key={feature}>
+                    {t.feats.map((f) => (
+                      <li key={f}>
                         <Check size={14} />
-                        {feature}
+                        {f}
                       </li>
                     ))}
                   </ul>
@@ -270,8 +290,8 @@ export default function Venues() {
                 </div>
               </Reveal>
             ))}
-          </div>
 
+          </div>
         </div>
       </section>
 
@@ -293,6 +313,7 @@ export default function Venues() {
           />
 
           <div className="grid g4">
+
             {bookingSteps.map((s, i) => (
               <Reveal
                 key={s.title}
@@ -318,6 +339,7 @@ export default function Venues() {
                 </div>
               </Reveal>
             ))}
+
           </div>
 
           <Reveal
@@ -361,7 +383,8 @@ export default function Venues() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ================= CTA ================= */}
+
       <CTASection />
     </>
   );

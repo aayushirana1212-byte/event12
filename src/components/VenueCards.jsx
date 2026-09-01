@@ -75,12 +75,12 @@ export function VenueCard({ v }) {
         <div className="vn-foot">
 
           <div className="vn-price">
-            ${v.price.toLocaleString()}
+            ₹{v.price.toLocaleString()}
             <small>/ event</small>
           </div>
 
           <Link
-            to={`/booking?venue=${v.id}`}
+            to={`/booking?venue=₹{v.id}`}
             className="btn btn-line btn-sm"
           >
             Book
