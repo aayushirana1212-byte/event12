@@ -62,7 +62,7 @@ export function VendorCard({ v }) {
 
         <div className="vd-foot">
           <Link
-            to={`/booking?type=${encodeURIComponent(v.category)}`}
+            to={`/booking?type=₹{encodeURIComponent(v.category)}`}
             className="btn btn-gold btn-sm"
             style={{ flex: 1 }}
           >
@@ -71,8 +71,8 @@ export function VendorCard({ v }) {
 
           <a
             className="vd-call"
-            href={`tel:${v.phone.replace(/\s/g, "")}`}
-            aria-label={`Call ${v.name}`}
+            href={`tel:₹{v.phone.replace(/\s/g, "")}`}
+            aria-label={`Call ₹{v.name}`}
             title={v.phone}
           >
             <Phone />

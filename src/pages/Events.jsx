@@ -104,7 +104,7 @@ export default function Events() {
                 {eventCategories.map((c) => (
                   <button
                     key={c}
-                    className={`pill ${cat === c ? "on" : ""}`}
+                    className={`pill ₹{cat === c ? "on" : ""}`}
                     onClick={() => pick(c)}
                   >
                     {c}
@@ -239,7 +239,7 @@ export default function Events() {
               <div className="evm-acts">
 
                 <Link
-                  to={`/booking?type=${encodeURIComponent(
+                  to={`/booking?type=₹{encodeURIComponent(
                     view.category
                   )}`}
                   className="btn btn-gold"
