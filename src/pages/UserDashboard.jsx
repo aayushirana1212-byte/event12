@@ -28,7 +28,7 @@ const PAYMENTS = [
   {
     id: "PAY-8821",
     booking: "Royal Wedding Affair",
-    amount: "$12,500",
+    amount: "₹12,500",
     method: "Visa •• 4419",
     date: "Jan 10, 2026",
     status: "Paid",
@@ -36,7 +36,7 @@ const PAYMENTS = [
   {
     id: "PAY-8730",
     booking: "Leadership Summit",
-    amount: "$24,000",
+    amount: "₹24,000",
     method: "Bank Transfer",
     date: "Jan 08, 2026",
     status: "Paid",
@@ -44,7 +44,7 @@ const PAYMENTS = [
   {
     id: "PAY-8699",
     booking: "Birthday Gala",
-    amount: "$3,200",
+    amount: "₹3,200",
     method: "Mastercard •• 7782",
     date: "Jan 22, 2026",
     status: "Pending",
@@ -52,7 +52,7 @@ const PAYMENTS = [
   {
     id: "PAY-8512",
     booking: "Engagement Evening",
-    amount: "$1,050",
+    amount: "₹1,050",
     method: "Visa •• 4419",
     date: "Dec 12, 2025",
     status: "Refunded",
@@ -338,7 +338,7 @@ export default function UserDashboard() {
                 <AnalyticsCard
                   icon={CreditCard}
                   label="Total Invested"
-                  value="$40.7K"
+                    value="₹40.7K"
                   delta="+12% vs 2025"
                 />
 
@@ -370,7 +370,7 @@ export default function UserDashboard() {
 
                   <li>
                     <Check size={15} />
-                    Payment of <b>$12,500</b> received
+                    Payment of <b>₹12,500</b> received
                     <span>Jan 10</span>
                   </li>
 

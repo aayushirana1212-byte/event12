@@ -80,7 +80,7 @@ export function VenueCard({ v }) {
           </div>
 
           <Link
-            to={`/booking?venue=₹{v.id}`}
+            to={`/booking?venue=${v.id}`}
             className="btn btn-line btn-sm"
           >
             Book

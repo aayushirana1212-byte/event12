@@ -21,7 +21,7 @@ export default function AboutPreview() {
             <img className="abp-small" src={IMG.aboutSmall} alt="Golden candelabra detail" />
             <div className="abp-badge">
               <Award size={26} />
-              <div><b>12+ Years</b><span>of Golden Craft</span></div>
+        
             </div>
           </div>
         </Reveal>

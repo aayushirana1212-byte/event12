@@ -48,7 +48,7 @@ const INIT_REQS = [
     event: "50th Birthday Gala — Velvet Orchid",
     date: "Apr 05, 2026",
     guests: 120,
-    budget: "$18,000",
+    budget: "₹18,000",
     status: "Pending",
   },
   {
@@ -57,7 +57,7 @@ const INIT_REQS = [
     event: "Engagement — Crystal Palace Gardens",
     date: "Apr 18, 2026",
     guests: 250,
-    budget: "$32,000",
+    budget: "₹32,000",
     status: "Pending",
   },
   {
@@ -66,7 +66,7 @@ const INIT_REQS = [
     event: "Product Launch — Ivory Convention",
     date: "May 22, 2026",
     guests: 800,
-    budget: "$65,000",
+    budget: "₹65,000",
     status: "Pending",
   },
   {
@@ -75,7 +75,7 @@ const INIT_REQS = [
     event: "Sangeet Night — Heritage Palace",
     date: "Jun 02, 2026",
     guests: 400,
-    budget: "$28,000",
+    budget: "₹28,000",
     status: "Accepted",
   },
 ];
@@ -234,7 +234,7 @@ export default function OrganizerDashboard() {
               <AnalyticsCard
                 icon={DollarSign}
                 label="Revenue (Month)"
-                value="$84.2K"
+                value="₹84.2K"
                 delta="+18.2%"
               />
 
@@ -401,7 +401,7 @@ export default function OrganizerDashboard() {
                       </td>
 
                       <td style={{ color: "var(--gold)" }}>
-                        ${e.price.toLocaleString()}
+                        ₹{e.price.toLocaleString()}
                       </td>
 
                       <td>{e.rating}</td>
@@ -521,7 +521,7 @@ export default function OrganizerDashboard() {
                       </td>
 
                       <td style={{ color: "var(--gold)" }}>
-                        ${v.price.toLocaleString()}
+                        ₹{v.price.toLocaleString()}
                       </td>
 
                       <td>{v.rating}</td>
@@ -798,7 +798,7 @@ export default function OrganizerDashboard() {
               <AnalyticsCard
                 icon={DollarSign}
                 label="Annual Revenue"
-                value="$1.2M"
+                value="₹1.2M"
                 delta="+31% YoY"
               />
 

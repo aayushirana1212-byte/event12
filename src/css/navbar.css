@@ -146,6 +146,83 @@
   color: #ffffff;
 }
 
+.service-menu,
+.nav-service-menu {
+  position: relative;
+}
+
+.service-trigger,
+.nav-service-trigger {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.service-trigger svg,
+.nav-service-trigger svg {
+  transition: transform 0.3s ease;
+}
+
+.service-menu:hover .service-trigger svg,
+.service-menu:focus-within .service-trigger svg,
+.nav-service-menu:hover .nav-service-trigger svg,
+.nav-service-menu:focus-within .nav-service-trigger svg,
+.service-menu.service-open .service-trigger svg {
+  transform: rotate(180deg);
+}
+
+.service-dropdown,
+.nav-service-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  min-width: 170px;
+  padding: 8px;
+  background: #15151d;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 20px 45px -18px rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 20;
+}
+
+.service-menu:hover .service-dropdown,
+.service-menu:focus-within .service-dropdown,
+.service-menu.service-open .service-dropdown,
+.nav-service-menu:hover .nav-service-dropdown,
+.nav-service-menu:focus-within .nav-service-dropdown,
+.nav-service-menu.is-open .nav-service-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.service-item,
+.nav-service-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 7px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: var(--tr);
+}
+
+.service-item:hover,
+.service-item.active,
+.nav-service-item:hover,
+.nav-service-item.active {
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.09);
+}
+
 /* ============================================================
    Navbar Actions
    ============================================================ */
@@ -408,6 +485,74 @@
   border-radius: 0 10px 10px 0;
 }
 
+.mobile-service-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-service-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.45s ease;
+}
+
+.mobile-service-trigger.active {
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.1);
+  border-left: 2px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+}
+
+.mobile-arrow {
+  transition: transform 0.3s ease;
+}
+
+.mobile-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.mobile-service-dropdown {
+  display: grid;
+  gap: 4px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  padding: 0 0 0 12px;
+  transition: all 0.3s ease;
+}
+
+.mobile-service-dropdown.show {
+  max-height: 220px;
+  opacity: 1;
+  padding-top: 6px;
+}
+
+.mobile-service-link {
+  display: block;
+  padding: 9px 16px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  transition: all 0.45s ease;
+}
+
+.mobile-service-link:hover,
+.mobile-service-link.active {
+  color: var(--gold);
+  background: rgba(212, 175, 55, 0.08);
+}
+
 /* Drawer Buttons */
 .dr-acts {
   display: grid;
@@ -502,3 +647,4 @@
     height: 34px;
   }
 }
+

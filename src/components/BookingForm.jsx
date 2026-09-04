@@ -28,11 +28,11 @@ const EVENT_TYPES = [
 ];
 
 const BUDGETS = [
-  "Under $5,000",
-  "$5,000 - $10,000",
-  "$10,000 - $25,000",
-  "$25,000 - $50,000",
-  "$50,000+",
+  "Under ₹5,000",
+  "₹5,000 - ₹10,000",
+  "₹10,000 - ₹25,000",
+  "₹25,000 - ₹50,000",
+  "₹50,000+",
 ];
 
 export default function BookingForm() {
@@ -78,11 +78,11 @@ export default function BookingForm() {
       e.name = "Please enter your full name.";
     }
 
-    if (!/^\S+@\S+\.\S+$/.test(f.email)) {
+    if (!/^\S+@\S+\.\S+₹/.test(f.email)) {
       e.email = "Enter a valid email address.";
     }
 
-    if (!/^[\d\s+()-]{7,16}$/.test(f.phone)) {
+    if (!/^[\d\s+()-]{7,16}₹/.test(f.phone)) {
       e.phone = "Enter a valid phone number.";
     }
 
@@ -414,7 +414,7 @@ export default function BookingForm() {
 
             <b>
               {estimate > 0
-                ? `$${estimate.toLocaleString()}`
+                ? `₹${estimate.toLocaleString()}`
                 : "—"}
             </b>
           </div>

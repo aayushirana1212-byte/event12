@@ -62,7 +62,7 @@ export function VendorCard({ v }) {
 
         <div className="vd-foot">
           <Link
-            to={`/booking?type=₹{encodeURIComponent(v.category)}`}
+            to={`/booking?type=${encodeURIComponent(v.category)}`}
             className="btn btn-gold btn-sm"
             style={{ flex: 1 }}
           >
@@ -71,8 +71,8 @@ export function VendorCard({ v }) {
 
           <a
             className="vd-call"
-            href={`tel:₹{v.phone.replace(/\s/g, "")}`}
-            aria-label={`Call ₹{v.name}`}
+            href={`tel:${v.phone.replace(/ /g, "")}`}
+            aria-label={`Call ${v.name}`}
             title={v.phone}
           >
             <Phone />
@@ -94,9 +94,7 @@ export default function VendorCards() {
           title={
             <>
               The Elite Behind{" "}
-              <em className="gold-text">
-                The Magic
-              </em>
+              <em className="gold-text">The Magic</em>
             </>
           }
           sub="Photographers, caterers, artists and performers — each vetted, insured and rated by real celebrations."

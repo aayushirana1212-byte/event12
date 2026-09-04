@@ -7,13 +7,46 @@ import {
 } from "lucide-react";
 
 import { festivalSlides } from "../data/content";
-
-/* Auto-playing festival / seasonal offer banner slider */
+import { festivalDates } from "../data/festivalDates";
 
 export default function FestivalBanner() {
-  const [idx, setIdx] = useState(0);
+  const getInitialIndex = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+
+    const datesForYear = festivalDates[year] || {};
+
+    const activeIndex = festivalSlides.findIndex((festival) => {
+      const dates = datesForYear[festival.id];
+
+      if (!dates) return false;
+
+      const start = new Date(`${dates.start}T00:00:00`);
+      const end = new Date(`${dates.end}T23:59:59`);
+
+      return today >= start && today <= end;
+    });
+
+    return activeIndex >= 0 ? activeIndex : 0;
+  };
+
+  const [idx, setIdx] = useState(getInitialIndex);
+
   const total = festivalSlides.length;
 
+  // Check festival every minute
+  useEffect(() => {
+    const checkFestival = () => {
+      const newIndex = getInitialIndex();
+      setIdx(newIndex);
+    };
+
+    const timer = setInterval(checkFestival, 60000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  // Auto-playing slider
   useEffect(() => {
     const t = setInterval(() => {
       setIdx((i) => (i + 1) % total);
@@ -30,7 +63,7 @@ export default function FestivalBanner() {
     >
       {festivalSlides.map((s, i) => (
         <div
-          key={i}
+          key={s.id || i}
           className={`fest-slide ${
             i === idx ? "on" : ""
           }`}
@@ -75,9 +108,9 @@ export default function FestivalBanner() {
         </button>
 
         <div className="fest-dots">
-          {festivalSlides.map((_, i) => (
+          {festivalSlides.map((festival, i) => (
             <button
-              key={i}
+              key={festival.id || i}
               className={i === idx ? "on" : ""}
               onClick={() => setIdx(i)}
               aria-label={`Slide ${i + 1}`}

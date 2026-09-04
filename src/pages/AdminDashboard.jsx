@@ -98,7 +98,7 @@ const INIT_PAYS = [
   {
     id: "PAY-8821",
     user: "Isabella Laurent",
-    amount: "$12,500",
+    amount: "₹12,500",
     method: "Visa •• 4419",
     date: "Jan 10, 2026",
     status: "Paid",
@@ -106,7 +106,7 @@ const INIT_PAYS = [
   {
     id: "PAY-8730",
     user: "Whitfield Group",
-    amount: "$24,000",
+    amount: "₹24,000",
     method: "Bank Transfer",
     date: "Jan 08, 2026",
     status: "Paid",
@@ -114,7 +114,7 @@ const INIT_PAYS = [
   {
     id: "PAY-8699",
     user: "Amara Osei",
-    amount: "$3,200",
+    amount: "₹3,200",
     method: "Mastercard •• 7782",
     date: "Jan 22, 2026",
     status: "Pending",
@@ -122,7 +122,7 @@ const INIT_PAYS = [
   {
     id: "PAY-8512",
     user: "Sofia Marchetti",
-    amount: "$1,050",
+    amount: "₹1,050",
     method: "Visa •• 9920",
     date: "Dec 12, 2025",
     status: "Refunded",
@@ -365,7 +365,7 @@ export default function AdminDashboard() {
               <AnalyticsCard
                 icon={DollarSign}
                 label="Platform Revenue"
-                value="$2.4M"
+                value="₹2.4M"
                 delta="+21.4%"
               />
 
@@ -612,7 +612,7 @@ export default function AdminDashboard() {
                           color: "var(--gold)",
                         }}
                       >
-                        ${event.price.toLocaleString()}
+                        ₹{event.price.toLocaleString()}
                       </td>
 
                       <td>{event.rating}</td>
@@ -707,7 +707,7 @@ export default function AdminDashboard() {
                           color: "var(--gold)",
                         }}
                       >
-                        ${venue.price.toLocaleString()}
+                        ₹{venue.price.toLocaleString()}
                       </td>
 
                       <td>{venue.rating}</td>
@@ -1150,7 +1150,7 @@ export default function AdminDashboard() {
               <AnalyticsCard
                 icon={DollarSign}
                 label="Revenue / Event"
-                value="$607"
+                value="₹607"
                 delta="+9.1%"
               />
 

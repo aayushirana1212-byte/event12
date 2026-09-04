@@ -59,7 +59,7 @@ export function EventCard({ ev, onView }) {
         <div className="ev-foot">
           <div className="ev-price">
             <small>From</small>
-            ${ev.price.toLocaleString()}
+            ₹{ev.price.toLocaleString()}
           </div>
 
           <div
