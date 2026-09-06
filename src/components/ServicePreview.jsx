@@ -27,7 +27,7 @@ export default function ServicePreview() {
         />
 
         <div className="grid g4">
-          {services.slice(0, 8).map((s, i) => (
+          {services.slice(0, 4).map((s, i) => (
             <Reveal
               key={s.id}
               delay={(i % 4) * 100}
