@@ -9,23 +9,21 @@ import FeaturedEvents from "../components/FeatureEvents";
 import VenueCards from "../components/VenueCards";
 import VendorCards from "../components/VendorCards";
 import WhyChooseUs from "../components/WhyChooseUs";
-import Statistics from "../components/Statistics";
 import GalleryGrid from "../components/GalleryGrid";
 import Testimonials from "../components/Testimonials";
 import CTASection from "../components/CTASection";
 import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
-import DynIcon from "../components/DynIcon";
 
-import { galleryItems, blogs, bookingSteps } from "../data/content";
+import { galleryItems, blogs } from "../data/content";
 
-// ✅ Global CSS
+// CSS
 import "../css/global.css";
-
-// ✅ Home page CSS
 import "../css/home.css";
 
-/* ============ HOME — all 15 sections ============ */
+/* =========================
+   HOME PAGE
+   ========================= */
 
 export default function Home() {
   return (
@@ -33,70 +31,36 @@ export default function Home() {
       {/* 1 — Hero */}
       <HeroSection />
 
-      {/* 2 — Festival banner slider */}
+      {/* 2 — Festival Banner */}
       <FestivalBanner />
 
-      {/* 3 — About preview */}
+      {/* 3 — About Preview */}
       <AboutPreview />
 
-      {/* 4 — Services preview */}
+      {/* 4 — Services Preview */}
       <ServicePreview />
 
-      {/* 5 — Featured events */}
+      {/* 5 — Featured Events */}
       <FeaturedEvents />
 
-      {/* 6 — Popular venues */}
+      {/* 6 — Popular Venues */}
       <VenueCards />
 
-      {/* 7 — Top vendors */}
+      {/* 7 — Top Vendors */}
       <VendorCards />
 
-      {/* 8 — Why choose us */}
+      {/* 8 — Why Choose Us */}
       <WhyChooseUs />
 
-      {/* 9 — How booking works */}
-      <section className="section">
-        <div className="container">
-          <SectionHeading
-            kicker="How It Works"
-            title={
-              <>
-                Booking, <em className="gold-text">Beautifully Simple</em>
-              </>
-            }
-            sub="Four golden steps between you and the celebration of a lifetime."
-          />
-
-          <div className="grid g4 steps">
-            {bookingSteps.map((s, i) => (
-              <Reveal key={s.title} delay={i * 120}>
-                <div className="step">
-                  <span className="step-num">0{i + 1}</span>
-
-                  <span className="step-ic">
-                    <DynIcon name={s.icon} size={24} />
-                  </span>
-
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 10 — Statistics */}
-      <Statistics />
-
-      {/* 11 — Gallery */}
+      {/* 9 — Gallery */}
       <section className="section">
         <div className="container">
           <SectionHeading
             kicker="Golden Gallery"
             title={
               <>
-                Moments We've <em className="gold-text">Gilded</em>
+                Moments We've{" "}
+                <em className="gold-text">Gilded</em>
               </>
             }
             sub="A glimpse into celebrations we have had the honor of producing."
@@ -112,36 +76,37 @@ export default function Home() {
               className="btn btn-line"
               style={{ marginTop: 48 }}
             >
-              View Full Gallery <ArrowRight />
+              View Full Gallery <ArrowRight size={18} />
             </Link>
           </Reveal>
         </div>
       </section>
 
-      {/* 12 — Testimonials */}
+      {/* 10 — Testimonials */}
       <Testimonials />
 
-      {/* 13 — Latest blogs */}
+      {/* 11 — Latest Blogs */}
       <section className="section">
         <div className="container">
           <SectionHeading
             kicker="The Golden Journal"
             title={
               <>
-                Latest Stories & <em className="gold-text">Insights</em>
+                Latest Stories &{" "}
+                <em className="gold-text">Insights</em>
               </>
             }
             sub="Trends, guides and behind-the-scenes notes from our design atelier."
           />
 
           <div className="grid g3">
-            {blogs.map((b, i) => (
-              <Reveal key={b.id} delay={i * 120}>
+            {blogs.map((blog, index) => (
+              <Reveal key={blog.id} delay={index * 120}>
                 <article className="card">
                   <div className="imgz bl-img">
                     <img
-                      src={b.image}
-                      alt={b.title}
+                      src={blog.image}
+                      alt={blog.title}
                       loading="lazy"
                     />
                   </div>
@@ -149,19 +114,22 @@ export default function Home() {
                   <div className="bl-body">
                     <div className="bl-meta">
                       <span>
-                        <CalendarDays /> {b.date}
+                        <CalendarDays size={16} />
+                        {blog.date}
                       </span>
 
                       <span>
-                        <Clock /> {b.read}
+                        <Clock size={16} />
+                        {blog.read}
                       </span>
                     </div>
 
-                    <h3>{b.title}</h3>
-                    <p>{b.excerpt}</p>
+                    <h3>{blog.title}</h3>
+
+                    <p>{blog.excerpt}</p>
 
                     <span className="bl-link">
-                      Read Story <ArrowRight />
+                      Read Story <ArrowRight size={17} />
                     </span>
                   </div>
                 </article>
@@ -171,7 +139,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 14 — CTA */}
+      {/* 12 — CTA */}
       <CTASection />
     </>
   );
