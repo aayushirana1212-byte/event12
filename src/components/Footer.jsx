@@ -232,7 +232,7 @@ export default function Footer() {
             <ul className="f-contact">
               <li>
                 <MapPin size={15} />
-                128 Crown Avenue, New York, NY 10001
+                Vadodara, Gujarat, India
               </li>
 
               <li>

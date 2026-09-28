@@ -10,7 +10,7 @@ const INFO = [
   {
     icon: MapPin,
     title: "Visit Our Atelier",
-    lines: ["128 Crown Avenue", "INDIA, NY 10001"],
+    lines: ["Vadodara, Gujarat, India"],
   },
   {
     icon: Phone,
@@ -94,7 +94,7 @@ export default function Contact() {
 
           <iframe
            title="Aurelia Events location map"
-           src="https://www.google.com/maps?q=Anand,Gujarat,India&output=embed&z=13"
+           src="https://www.google.com/maps?q=Vadodara,Gujarat,India&output=embed&z=13"
            loading="lazy"
            style={{
               width: "100%",
