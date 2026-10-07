@@ -1070,6 +1070,19 @@ p {
   color: var(--muted);
 }
 
+/* Vendors with no Google rating yet */
+.vd-rate .vd-new {
+  color: var(--gold);
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+
+  text-transform: uppercase;
+}
+
 .vd-rows {
   margin-top: 16px;
 
@@ -1142,6 +1155,16 @@ p {
 .vd-call svg {
   width: 16px;
   height: 16px;
+}
+
+.vd-call-off {
+  color: var(--muted2);
+  cursor: not-allowed;
+}
+
+.vd-call-off:hover {
+  background: none;
+  color: var(--muted2);
 }
 
 

@@ -27,7 +27,6 @@ export default function Login() {
   const [remember, setRemember] = useState(true);
   const [show, setShow] = useState(false);
 
-  // JSX ma TypeScript type remove kari didho
   const [err, setErr] = useState({});
 
   const submit = (e) => {
@@ -47,7 +46,6 @@ export default function Login() {
 
     setErr(v);
 
-    // Error hoy to stop
     if (Object.keys(v).length > 0) {
       return;
     }
@@ -63,12 +61,9 @@ export default function Login() {
     }
 
     // Toast
-    push(
-      "success",
-      "Welcome back to Aurelia. Your dashboard awaits."
-    );
+    push("success", "Welcome back to Aurelia. Your dashboard awaits.");
 
-    // Dashboard par navigate
+    // Navigate to dashboard
     navigate("/dashboard");
   };
 
@@ -81,15 +76,12 @@ export default function Login() {
         style={{ backgroundImage: `url(${IMG.auth})` }}
       >
         <div className="auth-media-ov" />
-
         <div className="auth-media-in">
           <Quote size={30} />
-
           <p>
             "The greatest events are not planned. They are composed —
             note by golden note."
           </p>
-
           <span>— Adrian Vale, Founder</span>
         </div>
       </div>
@@ -103,7 +95,6 @@ export default function Login() {
             <span className="logo-ic">
               <Crown size={20} />
             </span>
-
             <span className="logo-t">
               AURELIA
               <small>EVENTS</small>
@@ -122,7 +113,6 @@ export default function Login() {
             {/* Email */}
             <div className="field">
               <label>Email Address</label>
-
               <input
                 className="inp"
                 type="email"
@@ -130,7 +120,6 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-
               {err.email && (
                 <p className="ferr">
                   <AlertCircle size={13} />
@@ -142,7 +131,6 @@ export default function Login() {
             {/* Password */}
             <div className="field">
               <label>Password</label>
-
               <div className="pw">
                 <input
                   className="inp"
@@ -151,20 +139,14 @@ export default function Login() {
                   value={pass}
                   onChange={(e) => setPass(e.target.value)}
                 />
-
                 <button
                   type="button"
                   onClick={() => setShow(!show)}
                   aria-label="Toggle password"
                 >
-                  {show ? (
-                    <EyeOff size={16} />
-                  ) : (
-                    <Eye size={16} />
-                  )}
+                  {show ? <EyeOff size={16} /> : <Eye size={16} />}
                 </button>
               </div>
-
               {err.pass && (
                 <p className="ferr">
                   <AlertCircle size={13} />
@@ -175,57 +157,38 @@ export default function Login() {
 
             {/* Remember + Forgot */}
             <div className="auth-row">
-
               <label className="check">
                 <input
                   type="checkbox"
                   checked={remember}
                   onChange={(e) => setRemember(e.target.checked)}
                 />
-
                 Remember me
               </label>
 
-              <button
-                type="button"
-                className="auth-link"
-                onClick={() =>
-                  push(
-                    "info",
-                    "Password reset link sent to your email."
-                  )
-                }
-              >
+              {/* Navigate to Forgot Password page */}
+              <Link to="/forgot" className="auth-link">
                 Forgot password?
-              </button>
-
+              </Link>
             </div>
 
             {/* Submit */}
-            <button
-              type="submit"
-              className="btn btn-gold btn-block"
-            >
+            <button type="submit" className="btn btn-gold btn-block">
               Sign In
               <LogIn />
             </button>
-
           </form>
 
           {/* Demo */}
           <div className="demo">
-            Demo mode — any valid email & 6+ character password
-            signs you in.
+            Demo mode — any valid email & 6+ character password signs you in.
           </div>
 
           {/* Register */}
           <p className="auth-alt">
             New to Aurelia?{" "}
-            <Link to="/register">
-              Create an account
-            </Link>
+            <Link to="/register">Create an account</Link>
           </p>
-
         </div>
       </div>
     </div>

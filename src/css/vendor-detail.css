@@ -1,0 +1,147 @@
+/* ============================================================
+   VENDOR DETAIL
+   Reuses the venue-detail layout (vd-*) and adds
+   vendor-specific contact + price blocks.
+   ============================================================ */
+
+.vdr-price {
+  font-size: 26px;
+}
+
+.vdr-contact {
+  margin: 18px 0 16px;
+
+  padding: 14px 16px;
+
+  border: 1px solid rgba(201, 162, 39, 0.32);
+  border-radius: 10px;
+
+  background: rgba(201, 162, 39, 0.07);
+}
+
+.vdr-contact-lbl {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+
+  letter-spacing: 1.4px;
+
+  text-transform: uppercase;
+}
+
+.vdr-contact-num {
+  display: block;
+
+  color: var(--gold);
+
+  font-family: var(--ff-head);
+
+  font-size: 22px;
+
+  letter-spacing: 0.5px;
+
+  transition: var(--tr);
+}
+
+.vdr-contact-num:hover {
+  color: var(--gold-2);
+}
+
+.vdr-contact-none {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  color: var(--muted2);
+
+  font-size: 15px;
+}
+
+.vdr-contact-none svg {
+  width: 14px;
+  height: 14px;
+}
+
+.vdr-enq-btn {
+  margin-top: 12px;
+}
+
+.vdr-enq-note {
+  margin: 10px 0 0;
+
+  color: var(--muted2);
+
+  font-size: 12.5px;
+
+  line-height: 1.5;
+}
+
+
+/* Enquiry button shown in place of the call icon on cards */
+.vd-call-enq {
+  color: var(--gold-2);
+
+  border-color: rgba(201, 162, 39, 0.35);
+}
+
+.vd-call-enq:hover {
+  background: var(--gold);
+  color: #1a1405;
+}
+
+
+/* ============================================================
+   CLICKABLE VENDOR CARD
+   The whole card opens the vendor's detail page.
+   ============================================================ */
+
+.vendor-card.clickable {
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.vendor-card.clickable:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(201, 162, 39, 0.45);
+}
+
+.vendor-card.clickable:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  .vd-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .vdr-contact-num {
+    font-size: 19px;
+  }
+
+  .vdr-price {
+    font-size: 22px;
+  }
+}

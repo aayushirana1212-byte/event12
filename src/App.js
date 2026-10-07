@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap-grid.min.css";
+import "./css/global.css";
 import { ToastProvider } from "./context/ToastContext";
 import { AuthProvider } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
@@ -12,7 +14,9 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Events from "./pages/Events";
 import Venues from "./pages/Venues";
+import VenueDetail from "./pages/VenueDetail";
 import Vendors from "./pages/Vendors";
+import VendorDetail from "./pages/VendorDetail";
 import Gallery from "./pages/Gallery";
 import Booking from "./pages/Booking";
 import Contact from "./pages/Contact";
@@ -26,10 +30,10 @@ import Reviews from "./pages/Reviews";
 import FAQPage from "./pages/FAQPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
-import NotFound from "./pages/NotFound";
-
+import NotFound from "./pages/NotFound"
+import ForgotPassword from "./pages/forgot-password";
 /* Routes that render without the global navbar/footer */
-const BARE = ["/login", "/register", "/dashboard", "/organizer", "/admin"];
+const BARE = ["/login", "/register", "/forgot", "/dashboard", "/organizer", "/admin"];
 
 /* Smoothly returns to top whenever the route changes */
 function ScrollManager() {
@@ -65,7 +69,9 @@ export default function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/events" element={<Events />} />
             <Route path="/venues" element={<Venues />} />
+            <Route path="/venues/:id" element={<VenueDetail />} />
             <Route path="/vendors" element={<Vendors />} />
+            <Route path="/vendors/:id" element={<VendorDetail />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/booking" element={<Booking />} />
             <Route path="/contact" element={<Contact />} />
@@ -80,6 +86,7 @@ export default function App() {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/forgot" element={<ForgotPassword />} />
           </Routes>
         </main>
 

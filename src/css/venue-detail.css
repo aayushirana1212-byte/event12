@@ -1,0 +1,559 @@
+/* ============================================================
+   VENUE DETAIL PAGE
+   ============================================================ */
+
+.vd-hero-sec {
+  padding-bottom: 20px;
+}
+
+
+/* ============================================================
+   BACK LINK
+   ============================================================ */
+
+.vd-back {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-bottom: 32px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  transition: color 0.25s ease;
+}
+
+.vd-back:hover {
+  color: var(--gold);
+}
+
+
+/* ============================================================
+   HERO — COPY + IMAGE
+   ============================================================ */
+
+.vd-hero {
+  align-items: center;
+}
+
+.vd-hero-copy h1 {
+  margin: 10px 0 14px;
+
+  font-family: var(--ff-head);
+
+  font-size: clamp(34px, 4vw, 56px);
+
+  font-weight: 500;
+
+  line-height: 1.05;
+
+  letter-spacing: -1px;
+
+  color: var(--text);
+}
+
+
+/* LOCATION */
+
+.vd-loc {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin: 0 0 20px;
+
+  color: var(--muted);
+
+  font-size: 15px;
+}
+
+.vd-loc svg {
+  color: var(--gold);
+}
+
+
+/* BADGES */
+
+.vd-badges {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-bottom: 24px;
+}
+
+.vd-badge {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 8px 12px;
+
+  color: var(--text);
+
+  font-size: 12px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 2px;
+}
+
+.vd-badge svg {
+  color: var(--gold);
+
+  fill: var(--gold);
+}
+
+
+/* DESCRIPTION */
+
+.vd-desc {
+  margin: 0;
+
+  max-width: 56ch;
+
+  color: var(--muted);
+
+  font-size: 15.5px;
+
+  line-height: 1.85;
+}
+
+
+/* HERO IMAGE */
+
+.vd-hero-img img {
+  display: block;
+
+  width: 100%;
+
+  height: 460px;
+
+  object-fit: cover;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* ============================================================
+   TWO COLUMN BODY
+   ============================================================ */
+
+.vd-cols {
+  align-items: start;
+}
+
+
+/* SUB HEADINGS */
+
+.vd-h2 {
+  margin: 0 0 22px;
+
+  padding-bottom: 12px;
+
+  font-family: var(--ff-head);
+
+  font-size: 26px;
+
+  font-weight: 500;
+
+  color: var(--text);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vd-main .vd-h2:not(:first-child) {
+  margin-top: 52px;
+}
+
+
+/* ============================================================
+   GALLERY
+   ============================================================ */
+
+.vd-gallery {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 12px;
+}
+
+.vd-gallery > div {
+  overflow: hidden;
+}
+
+.vd-gallery img {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+
+  min-height: 150px;
+
+  object-fit: cover;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: transform 0.5s ease;
+}
+
+.vd-gallery > div:hover img {
+  transform: scale(1.06);
+}
+
+.vd-gal-big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.vd-gal-big img {
+  min-height: 312px;
+}
+
+
+/* ============================================================
+   FACILITIES
+   ============================================================ */
+
+.vd-facs {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.vd-fac {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 11px 15px;
+
+  color: var(--text);
+
+  font-size: 13px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vd-fac svg {
+  color: var(--gold);
+}
+
+
+/* ============================================================
+   MAP LINK
+   ============================================================ */
+
+.vd-map {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 20px 22px;
+
+  color: var(--text);
+
+  text-decoration: none;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  transition: border-color 0.25s ease;
+}
+
+.vd-map:hover {
+  border-color: var(--gold);
+}
+
+.vd-map > svg:first-child {
+  color: var(--gold);
+
+  flex-shrink: 0;
+}
+
+.vd-map > svg:last-child {
+  margin-left: auto;
+
+  color: var(--muted);
+
+  flex-shrink: 0;
+}
+
+.vd-map span {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+.vd-map b {
+  color: var(--text);
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+
+/* ============================================================
+   STICKY BOOKING CARD
+   ============================================================ */
+
+.vd-side {
+  position: sticky;
+  top: 100px;
+}
+
+.vd-book {
+  padding: 28px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vd-book-lbl {
+  color: var(--muted);
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+}
+
+.vd-book-price {
+  margin: 10px 0 22px;
+
+  font-family: var(--ff-head);
+
+  font-size: 34px;
+
+  font-weight: 600;
+
+  color: var(--gold);
+}
+
+.vd-book-price small {
+  margin-left: 6px;
+
+  color: var(--muted);
+
+  font-family: var(--ff-body);
+
+  font-size: 12px;
+
+  font-weight: 400;
+}
+
+.vd-book-list {
+  margin: 0 0 24px;
+
+  padding: 20px 0;
+
+  list-style: none;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.vd-book-list li {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  margin-bottom: 12px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+.vd-book-list li:last-child {
+  margin-bottom: 0;
+}
+
+.vd-book-list svg {
+  color: var(--gold);
+
+  flex-shrink: 0;
+}
+
+.vd-book-list b {
+  color: var(--text);
+
+  font-weight: 600;
+}
+
+.vd-book .btn {
+  margin-bottom: 11px;
+}
+
+.vd-book .btn-block {
+  width: 100%;
+}
+
+.vd-nocontact {
+  margin: 0 0 18px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+.vd-note {
+  margin: 16px 0 0;
+
+  color: var(--muted);
+
+  font-size: 11.5px;
+
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+
+/* ============================================================
+   EXPLORE ALL BUTTON
+   ============================================================ */
+
+.vd-all {
+  margin-top: 48px;
+}
+
+
+/* ============================================================
+   CLICKABLE CARD (VENUES LIST)
+   ============================================================ */
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 1050px) {
+  .vd-hero-img img {
+    height: 380px;
+  }
+
+  .vd-side {
+    position: static;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .vd-hero-sec {
+    padding-top: 52px;
+  }
+
+  .vd-hero-img img {
+    height: clamp(220px, 58vw, 360px);
+  }
+
+  .vd-gallery {
+    gap: 8px;
+  }
+
+  .vd-gal-big {
+    grid-column: span 2;
+    grid-row: auto;
+  }
+
+  .vd-gal-big img {
+    min-height: 230px;
+  }
+
+  .vd-book {
+    padding: 22px;
+  }
+
+  .vd-h2 {
+    font-size: 23px;
+  }
+
+  .vd-all {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .vd-back {
+    margin-bottom: 22px;
+    font-size: 11px;
+  }
+
+  .vd-badges {
+    gap: 8px;
+  }
+
+  .vd-badge {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .vd-desc {
+    font-size: 14px;
+  }
+
+  .vd-gal-big img {
+    min-height: 190px;
+  }
+
+  .vd-gal-sm img {
+    min-height: 110px;
+  }
+
+  .vd-fac {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+
+  .vd-map {
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .vd-book {
+    padding: 18px;
+  }
+
+  .vd-book-price {
+    font-size: 30px;
+  }
+}

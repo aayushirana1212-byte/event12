@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Car,
@@ -11,6 +11,7 @@ import {
   Zap,
   Check,
   ArrowRight,
+  Search,
 } from "lucide-react";
 
 import PageBanner from "../components/PageBanner";
@@ -18,6 +19,7 @@ import SectionHeading from "../components/SectionHeading";
 import Reveal from "../components/Reveal";
 import FAQ from "../components/Faq";
 import CTASection from "../components/CTASection";
+import Pagination from "../components/Pagination";
 import { VenueCard } from "../components/VenueCards";
 import DynIcon from "../components/DynIcon";
 import {
@@ -27,6 +29,7 @@ import {
   bookingSteps,
 } from "../data/content";
 
+import "../css/global.css";
 import "../css/venues.css";
 
 /* ---------------- Facilities ---------------- */
@@ -116,9 +119,31 @@ const TIERS = [
 
 export default function Venues() {
   const [cat, setCat] = useState("All");
+  const [page, setPage] = useState(1);
+  const [search, setSearch] = useState("");
 
-  const list = venues.filter(
-    (v) => cat === "All" || v.category === cat
+  const PER_PAGE = 9;
+
+  const filtered = useMemo(() => {
+    return venues.filter((v) => {
+      const categoryMatch = cat === "All" || v.category === cat;
+
+      const q = search.trim().toLowerCase();
+
+      const searchMatch =
+        v.name?.toLowerCase().includes(q) ||
+        v.location?.toLowerCase().includes(q) ||
+        v.category?.toLowerCase().includes(q);
+
+      return categoryMatch && searchMatch;
+    });
+  }, [cat, search]);
+
+  const totalPages = Math.ceil(filtered.length / PER_PAGE);
+
+  const pageItems = filtered.slice(
+    (page - 1) * PER_PAGE,
+    page * PER_PAGE
   );
 
   return (
@@ -146,6 +171,30 @@ export default function Venues() {
             sub="Filter by style — every venue is personally inspected and production-certified by our team."
           />
 
+          {/* Search */}
+          <Reveal>
+            <div
+              className="svc-search"
+              style={{
+                maxWidth: "420px",
+                margin: "0 auto 30px",
+              }}
+            >
+              <Search size={16} />
+
+              <input
+                type="text"
+                placeholder="Search venues or areas..."
+                value={search}
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setPage(1);
+                }}
+                aria-label="Search venues"
+              />
+            </div>
+          </Reveal>
+
           <Reveal>
             <div
               className="tag-row"
@@ -160,7 +209,10 @@ export default function Venues() {
                   className={`pill ${
                     cat === c ? "on" : ""
                   }`}
-                  onClick={() => setCat(c)}
+                  onClick={() => {
+                    setCat(c);
+                    setPage(1);
+                  }}
                 >
                   {c}
                 </button>
@@ -168,16 +220,34 @@ export default function Venues() {
             </div>
           </Reveal>
 
-          <div className="grid g3">
-            {list.map((v, i) => (
-              <Reveal
-                key={v.id}
-                delay={(i % 3) * 100}
-              >
-                <VenueCard v={v} />
-              </Reveal>
-            ))}
-          </div>
+          {pageItems.length > 0 ? (
+            <div className="grid g3">
+              {pageItems.map((v, i) => (
+                <Reveal
+                  key={v.id}
+                  delay={(i % 3) * 100}
+                >
+                  <VenueCard v={v} />
+                </Reveal>
+              ))}
+            </div>
+          ) : (
+            <div className="empty">
+              <Search size={32} />
+              <h3>No venues found</h3>
+              <p>
+                Try another venue name, area or category.
+              </p>
+            </div>
+          )}
+
+          {totalPages > 1 && (
+            <Pagination
+              page={page}
+              total={totalPages}
+              onChange={setPage}
+            />
+          )}
 
         </div>
       </section>
@@ -199,7 +269,7 @@ export default function Venues() {
             }
           />
 
-          <div className="grid g4">
+          <div className="grid g4 facilities-grid">
             {FACILITIES.map((f, i) => {
               const Icon = f.icon;
 

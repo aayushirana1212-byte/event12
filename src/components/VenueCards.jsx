@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { MapPin, Users, Star, ArrowRight } from "lucide-react";
 
 import Reveal from "./Reveal";
@@ -8,11 +8,31 @@ import "../css/venues.css";
 
 /* ============================================================
    VENUE CARD
-============================================================ */
+   Clicking anywhere on the card opens the venue's
+   full detail page. The Book button keeps its own link.
+   ============================================================ */
 
 export function VenueCard({ v }) {
+  const navigate = useNavigate();
+
+  const open = () =>
+    navigate(`/venues/${v.id}`);
+
   return (
-    <article className="card venue-card">
+    <article
+      className="card venue-card clickable"
+      role="link"
+      tabIndex={0}
+      onClick={open}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open();
+        }
+      }}
+      aria-label={`View details for ${v.name}`}
+    >
+
 
       {/* IMAGE */}
       <div className="imgz vn-img">
@@ -24,10 +44,16 @@ export function VenueCard({ v }) {
         />
 
         {/* Rating */}
-        <span className="vn-rate">
-          <Star />
-          {v.rating}
-        </span>
+        {v.rating != null ? (
+          <span className="vn-rate">
+            <Star />
+            {v.rating}
+          </span>
+        ) : (
+          <span className="vn-rate vn-new">
+            New
+          </span>
+        )}
 
         {/* Capacity */}
         <span className="vn-cap">
@@ -53,6 +79,13 @@ export function VenueCard({ v }) {
           <MapPin />
           {v.location}
         </p>
+
+        {/* Reviews */}
+        {v.reviews > 0 && (
+          <p className="vn-rev">
+            {v.reviews.toLocaleString()} Google reviews
+          </p>
+        )}
 
         {/* Facilities */}
         <div className="fac">
@@ -82,6 +115,7 @@ export function VenueCard({ v }) {
           <Link
             to={`/booking?venue=${v.id}`}
             className="btn btn-line btn-sm"
+            onClick={(e) => e.stopPropagation()}
           >
             Book
           </Link>

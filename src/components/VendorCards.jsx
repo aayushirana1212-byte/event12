@@ -1,9 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Star,
   Award,
   BadgeDollarSign,
   Phone,
+  Mail,
+  MapPin,
   ArrowRight,
 } from "lucide-react";
 
@@ -11,10 +13,54 @@ import SectionHeading from "./SectionHeading";
 import Reveal from "./Reveal";
 import { vendors } from "../data/content";
 
-/* Reusable vendor card */
+import "../css/vendors.css";
+import "../css/vendor-detail.css";
+
+export const ENQUIRY_EMAIL = "hello@aureliaevents.com";
+
+/* Builds the enquiry mailto used when a vendor has no phone listed */
+export function enquiryLink(v) {
+  const subject = `Enquiry: ${v.name} (${v.category})`;
+
+  const body = [
+    `Vendor: ${v.name}`,
+    `Category: ${v.category}`,
+    `Location: ${v.location}`,
+    "",
+    "I would like to know availability and pricing.",
+  ].join("\n");
+
+  return `mailto:${ENQUIRY_EMAIL}?subject=${encodeURIComponent(
+    subject
+  )}&body=${encodeURIComponent(body)}`;
+}
+
+/* ============================================================
+   VENDOR CARD
+   Clicking anywhere on the card opens the vendor's
+   full detail page. Book and Call keep their own links.
+   ============================================================ */
+
 export function VendorCard({ v }) {
+  const navigate = useNavigate();
+
+  const open = () =>
+    navigate(`/vendors/${v.id}`);
+
   return (
-    <article className="card">
+    <article
+      className="card vendor-card clickable"
+      role="link"
+      tabIndex={0}
+      onClick={open}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          open();
+        }
+      }}
+      aria-label={`View details for ${v.name}`}
+    >
       <div className="imgz vd-img">
         <img
           src={v.image}
@@ -30,22 +76,31 @@ export function VendorCard({ v }) {
 
         <h3>{v.name}</h3>
 
+        {v.location && (
+          <p className="vn-loc">
+            <MapPin />
+            {v.location}
+          </p>
+        )}
+
         <div className="vd-rate">
-          <span className="stars">
-            <Star />
-            <Star />
-            <Star />
-            <Star />
-            <Star className={v.rating < 4.9 ? "off" : ""} />
-          </span>
+          {v.rating != null ? (
+            <>
+              <span className="stars">
+                {[1, 2, 3, 4, 5].map((n) => (
+                  <Star key={n} className={v.rating < n ? "off" : ""} />
+                ))}
+              </span>
 
-          <b style={{ color: "var(--gold)" }}>
-            {v.rating}
-          </b>
+              <b style={{ color: "var(--gold)" }}>
+                {v.rating}
+              </b>
 
-          <span>
-            ({v.reviews} reviews)
-          </span>
+              {v.reviews > 0 && <span>({v.reviews.toLocaleString()} reviews)</span>}
+            </>
+          ) : (
+            <span className="vd-new">New</span>
+          )}
         </div>
 
         <ul className="vd-rows">
@@ -58,6 +113,13 @@ export function VendorCard({ v }) {
             <BadgeDollarSign />
             {v.price}
           </li>
+
+          {v.phone && (
+            <li>
+              <Phone />
+              <b>{v.phone}</b>
+            </li>
+          )}
         </ul>
 
         <div className="vd-foot">
@@ -65,18 +127,32 @@ export function VendorCard({ v }) {
             to={`/booking?type=${encodeURIComponent(v.category)}`}
             className="btn btn-gold btn-sm"
             style={{ flex: 1 }}
+            onClick={(e) => e.stopPropagation()}
           >
             Book Now
           </Link>
 
-          <a
-            className="vd-call"
-            href={`tel:${v.phone.replace(/ /g, "")}`}
-            aria-label={`Call ${v.name}`}
-            title={v.phone}
-          >
-            <Phone />
-          </a>
+          {v.phone ? (
+            <a
+              className="vd-call"
+              href={`tel:${v.phone.replace(/ /g, "")}`}
+              aria-label={`Call ${v.name}`}
+              title={v.phone}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Phone />
+            </a>
+          ) : (
+            <a
+              className="vd-call vd-call-enq"
+              href={enquiryLink(v)}
+              aria-label={`Send enquiry for ${v.name}`}
+              title="No phone listed — send an enquiry"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Mail />
+            </a>
+          )}
         </div>
       </div>
     </article>
